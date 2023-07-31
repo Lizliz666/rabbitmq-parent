@@ -56,6 +56,11 @@ public class SendTest {
 
     @Test
     public void testSendTopicSms(){
+        /**
+         * 这这种通配符的模式下,相关的要求全部满足,素以一次会输出三个结果
+         * sms/email和站内信
+         *
+         */
         rabbitTemplate.convertAndSend("topic-sms-email-exchange","sms.letter.email","短信邮件服务接受");
     }
 }
