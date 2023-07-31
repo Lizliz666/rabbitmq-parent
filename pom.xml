@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>rabbitmq-parent</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>rabbitmq-producer</module>
+        <module>rabbitmq-consumer</module>
+        <module>springboot-rabbitmq-producer</module>
+        <module>springboot-rabbitmq-consumer</module>
+    </modules>
+
+    <parent>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <version>2.3.2.RELEASE</version>
+    </parent>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+
+
+
+    <!--
+    1.在父工程添加依赖，所有的子工程都会引入。但是某个子工程不需要时，无法进行排除。
+    2.dependencyManagement 中，帮助我们管理所有的依赖以及版本号，子工程需要时，需要添加 groupId，artifactId 但是不需要管理版本，因为版本由父工程进行管理
+    -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.rabbitmq</groupId>
+                <artifactId>amqp-client</artifactId>
+                <version>5.14.2</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

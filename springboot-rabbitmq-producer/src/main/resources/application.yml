@@ -1,0 +1,7 @@
+spring:
+  rabbitmq:
+    host: 39.106.22.111
+    port: 5672
+    username: root
+    password: root
+    virtual-host: xa-2304
